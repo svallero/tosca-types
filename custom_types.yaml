@@ -2062,7 +2062,7 @@ node_types:
     derived_from: tosca.nodes.indigo.LRMS.WorkerNode
     artifacts:
       kube_role:
-        file: grycap.kubernetes
+        file: indigo-dc.kubernetes
         type: tosca.artifacts.AnsibleGalaxy.role
       nfs_role:
         file: indigo-dc.nfs
@@ -2088,10 +2088,10 @@ node_types:
       admin_token:
         required: no
         type: string
-        value: some_insecure_token
+        default: some_insecure_token
     artifacts:
       kube_role:
-        file: grycap.kubernetes
+        file: indigo-dc.kubernetes
         type: tosca.artifacts.AnsibleGalaxy.role
       nfs_role:
         file: indigo-dc.nfs
