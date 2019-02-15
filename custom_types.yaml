@@ -2208,6 +2208,11 @@ node_types:
         description: Authentication mode
         default: noauth
         required: false
+      mount_ftp:
+        description: Flag used to specify that the ftp has to be enabled
+        type: boolean
+        required: false
+        default: true 
       teskmaster_ftp_url:
         type: string
         description: ftp url
