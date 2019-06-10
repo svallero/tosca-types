@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - role: indigo-dc.virgo_config
+      virgo_config_node: "master"

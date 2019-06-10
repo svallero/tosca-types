@@ -1915,6 +1915,182 @@ node_types:
           node: tosca.nodes.SoftwareComponent
           occurrences: [1, 1]
 
+  tosca.nodes.indigo.VirgoCondorMasterConfig:
+    derived_from: tosca.nodes.SoftwareComponent
+    properties:
+      marathon_username:
+        type: string
+        required: yes
+      marathon_password:
+        type: string
+        required: yes
+      virgo_default_squid:
+        type: string
+        required: yes
+      master_ips:
+        required: yes
+        type: list
+        entry_schema:
+          type: string
+    artifacts:
+      virgo_config_role:
+        file: indigo-dc.virgo_config,v0.0.0
+        type: tosca.artifacts.AnsibleGalaxy.role
+    interfaces:
+      Standard:
+        start:
+          implementation: https://raw.githubusercontent.com/svallero/tosca-types/dodas-1.1.0/artifacts/mesos/virgo_wn_config.yml 
+          inputs:
+            mesos_masters_list: { get_property: [ SELF, master_ips ] }
+            consul_servers: { get_property: [ SELF, master_ips ] }
+            zookeeper_host_list: { get_property: [ SELF, master_ips ] }
+            zookeeper_peers: { get_property: [ SELF, master_ips ] }
+            marathon_username: { get_property: [ SELF, marathon_username ] }
+            marathon_password: { get_property: [ SELF, marathon_password ] }
+            virgo_default_squid: { get_property: [ SELF, virgo_default_squid ] }
+    requirements:
+      - host:
+          capability: tosca.capabilities.indigo.MesosMaster
+          relationship: tosca.relationships.HostedOn
+          node: tosca.nodes.SoftwareComponent
+          occurrences: [1, 1]
+
+  tosca.nodes.indigo.VirgoCondorExecuteConfig:
+    derived_from: tosca.nodes.SoftwareComponent
+    properties:
+      marathon_username:
+        type: string
+        required: yes
+      marathon_password:
+        type: string
+        required: yes
+      proxycache_host:
+        type: string
+        required: yes
+      config_proxycache_serviceport:
+        type: string
+        required: true
+        default: '8080'
+      htcondor_config_ccb_address:
+        type: string
+        required: no
+      htcondor_config_condor_host:
+        type: string
+        required: no
+      htcondor_config_condor_image:
+        type: string
+        required: no
+      master_ips:
+        required: yes
+        type: list
+        entry_schema:
+          type: string
+    artifacts:
+      virgo_config_role:
+        file: indigo-dc.virgo_config,v0.0.0
+        type: tosca.artifacts.AnsibleGalaxy.role
+    interfaces:
+      Standard:
+        start:
+          implementation: https://raw.githubusercontent.com/svallero/tosca-types/dodas-1.1.0/artifacts/mesos/virgo_execute_config.yaml
+          inputs:
+            mesos_masters_list: { get_property: [ SELF, master_ips ] }
+            consul_servers: { get_property: [ SELF, master_ips ] }
+            zookeeper_host_list: { get_property: [ SELF, master_ips ] }
+            zookeeper_peers: { get_property: [ SELF, master_ips ] }
+            marathon_username: { get_property: [ SELF, marathon_username ] }
+            marathon_password: { get_property: [ SELF, marathon_password ] }
+            proxycache_host: { get_property: [ SELF, proxycache_host ] }
+            config_proxycache_serviceport: { get_property: [ SELF, config_proxycache_serviceport ] }
+            ccb_address:  { get_property: [ SELF, htcondor_config_ccb_address ] }
+            condor_host: { get_property: [ SELF, htcondor_config_condor_host ] }
+            htcondor_config_condor_image: { get_property: [ SELF, htcondor_config_condor_image ] }
+    requirements:
+      - host:
+          capability: tosca.capabilities.indigo.MesosMaster
+          relationship: tosca.relationships.HostedOn
+          node: tosca.nodes.SoftwareComponent
+          occurrences: [1, 1]
+
+  tosca.nodes.indigo.VirgoCondorWnConfig:
+    derived_from: tosca.nodes.SoftwareComponent
+    properties:
+      marathon_username:
+        type: string
+        required: yes
+      marathon_password:
+        type: string
+        required: yes
+      virgo_default_squid:
+        type: string
+        required: yes
+      number_of_wn_instances:
+        type: integer
+        required: yes
+      number_of_slaves:
+        type: integer
+        required: yes
+      cpu_x_wn:
+        type: float
+        required: yes
+      ram_x_wn:
+        type: float
+        required: yes
+      docker_cpu_x_wn:
+        type: float
+        required: yes
+      docker_ram_x_wn:
+        type: float
+        required: yes
+      master_ips:
+        required: yes
+        type: list
+        entry_schema:
+          type: string
+      virgo_repo_server_url:
+        type: string
+      virgo_repo_public_key_path:
+        type: string
+      virgo_repo_repository_name:
+        type: string
+      virgo_repo_public_key:
+        type: string
+      virgo_repo_public_key_url:
+        type: string
+    artifacts:
+      virgo_config_role:
+        file: indigo-dc.virgo_config,v0.0.0
+        type: tosca.artifacts.AnsibleGalaxy.role
+    interfaces:
+      Standard:
+        start:
+          implementation: https://raw.githubusercontent.com/svallero/tosca-types/dodas-1.1.0/artifacts/mesos/virgo_wn_config.yml
+          inputs:
+            mesos_masters_list: { get_property: [ SELF, master_ips ] }
+            consul_servers: { get_property: [ SELF, master_ips ] }
+            zookeeper_host_list: { get_property: [ SELF, master_ips ] }
+            zookeeper_peers: { get_property: [ SELF, master_ips ] }
+            marathon_username: { get_property: [ SELF, marathon_username ] }
+            marathon_password: { get_property: [ SELF, marathon_password ] }
+            virgo_default_squid: { get_property: [ SELF, virgo_default_squid ] }
+            virgo_number_of_wn_instances: { get_property: [ SELF, number_of_wn_instances ] }
+            virgo_number_of_slaves: { get_property: [ SELF, number_of_slaves ] }
+            virgo_cpu_x_wn: { get_property: [ SELF, cpu_x_wn ] }
+            virgo_ram_x_wn: { get_property: [ SELF, ram_x_wn ] }
+            virgo_docker_cpu_x_wn: { get_property: [ SELF, docker_cpu_x_wn ] }
+            virgo_docker_ram_x_wn: { get_property: [ SELF, docker_ram_x_wn ] }
+            virgo_repo_server_url: { get_property: [ SELF, virgo_repo_server_url ] }
+            virgo_repo_public_key_path: { get_property: [ SELF, virgo_repo_public_key_path ] }
+            virgo_repo_repository_name: { get_property: [ SELF, virgo_repo_repository_name ] }
+            virgo_repo_public_key: { get_property: [ SELF, virgo_repo_public_key ] }
+            virgo_repo_public_key_url: { get_property: [ SELF, virgo_repo_public_key_url ] }
+    requirements:
+      - host:
+          capability: tosca.capabilities.indigo.MesosSlave
+          relationship: tosca.relationships.HostedOn
+          node: tosca.nodes.SoftwareComponent
+          occurrences: [1, 1]
+
   tosca.nodes.indigo.LRMS.WorkerNode.Mesos:
     derived_from: tosca.nodes.indigo.LRMS.WorkerNode
     capabilities:
