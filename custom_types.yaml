@@ -1939,7 +1939,7 @@ node_types:
     interfaces:
       Standard:
         start:
-          implementation: https://raw.githubusercontent.com/svallero/tosca-types/dodas-1.1.0/artifacts/mesos/virgo_wn_config.yml 
+          implementation: https://raw.githubusercontent.com/svallero/tosca-types/dodas-1.1.0/artifacts/mesos/virgo_master_config.yml 
           inputs:
             mesos_masters_list: { get_property: [ SELF, master_ips ] }
             consul_servers: { get_property: [ SELF, master_ips ] }
