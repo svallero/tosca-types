@@ -1934,7 +1934,7 @@ node_types:
           type: string
     artifacts:
       virgo_config_role:
-        file: indigo-dc.virgo_config,v0.0.1
+        file: indigo-dc.virgo_config,v0.0.2
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
@@ -1987,7 +1987,7 @@ node_types:
           type: string
     artifacts:
       virgo_config_role:
-        file: indigo-dc.virgo_config,v0.0.1
+        file: indigo-dc.virgo_config,v0.0.2
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
@@ -2059,7 +2059,7 @@ node_types:
         type: string
     artifacts:
       virgo_config_role:
-        file: indigo-dc.virgo_config,v0.0.1
+        file: indigo-dc.virgo_config,v0.0.2
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
