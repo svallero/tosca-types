@@ -1980,6 +1980,24 @@ node_types:
       htcondor_config_condor_image:
         type: string
         required: no
+      virgo_number_of_wn_instances:
+        type: integer
+        required: yes
+      virgo_number_of_slaves:
+        type: integer
+        required: yes
+      virgo_cpu_x_wn:
+        type: float
+        required: yes
+      virgo_ram_x_wn:
+        type: float
+        required: yes
+      virgo_docker_cpu_x_wn:
+        type: float
+        required: yes
+      virgo_docker_ram_x_wn:
+        type: float
+        required: yes
       master_ips:
         required: yes
         type: list
@@ -2005,6 +2023,12 @@ node_types:
             ccb_address:  { get_property: [ SELF, htcondor_config_ccb_address ] }
             condor_host: { get_property: [ SELF, htcondor_config_condor_host ] }
             htcondor_config_condor_image: { get_property: [ SELF, htcondor_config_condor_image ] }
+            virgo_number_of_wn_instances: { get_property: [ SELF, number_of_wn_instances ] }
+            virgo_number_of_slaves: { get_property: [ SELF, number_of_slaves ] }
+            virgo_cpu_x_wn: { get_property: [ SELF, cpu_x_wn ] }
+            virgo_ram_x_wn: { get_property: [ SELF, ram_x_wn ] }
+            virgo_docker_cpu_x_wn: { get_property: [ SELF, docker_cpu_x_wn ] }
+            virgo_docker_ram_x_wn: { get_property: [ SELF, docker_ram_x_wn ] }
     requirements:
       - host:
           capability: tosca.capabilities.indigo.MesosMaster
