@@ -2097,12 +2097,12 @@ node_types:
             marathon_username: { get_property: [ SELF, marathon_username ] }
             marathon_password: { get_property: [ SELF, marathon_password ] }
             virgo_default_squid: { get_property: [ SELF, virgo_default_squid ] }
-            virgo_number_of_wn_instances: { get_property: [ SELF, number_of_wn_instances ] }
-            virgo_number_of_slaves: { get_property: [ SELF, number_of_slaves ] }
-            virgo_cpu_x_wn: { get_property: [ SELF, cpu_x_wn ] }
-            virgo_ram_x_wn: { get_property: [ SELF, ram_x_wn ] }
-            virgo_docker_cpu_x_wn: { get_property: [ SELF, docker_cpu_x_wn ] }
-            virgo_docker_ram_x_wn: { get_property: [ SELF, docker_ram_x_wn ] }
+            number_of_wn_instances: { get_property: [ SELF, number_of_wn_instances ] }
+            number_of_slaves: { get_property: [ SELF, number_of_slaves ] }
+            cpu_x_wn: { get_property: [ SELF, cpu_x_wn ] }
+            ram_x_wn: { get_property: [ SELF, ram_x_wn ] }
+            docker_cpu_x_wn: { get_property: [ SELF, docker_cpu_x_wn ] }
+            docker_ram_x_wn: { get_property: [ SELF, docker_ram_x_wn ] }
             virgo_repo_server_url: { get_property: [ SELF, virgo_repo_server_url ] }
             virgo_repo_public_key_path: { get_property: [ SELF, virgo_repo_public_key_path ] }
             virgo_repo_repository_name: { get_property: [ SELF, virgo_repo_repository_name ] }
