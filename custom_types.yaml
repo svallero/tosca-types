@@ -1980,22 +1980,22 @@ node_types:
       htcondor_config_condor_image:
         type: string
         required: no
-      virgo_number_of_wn_instances:
+      number_of_wn_instances:
         type: integer
         required: yes
-      virgo_number_of_slaves:
+      number_of_slaves:
         type: integer
         required: yes
-      virgo_cpu_x_wn:
+      cpu_x_wn:
         type: float
         required: yes
-      virgo_ram_x_wn:
+      ram_x_wn:
         type: float
         required: yes
-      virgo_docker_cpu_x_wn:
+      docker_cpu_x_wn:
         type: float
         required: yes
-      virgo_docker_ram_x_wn:
+      docker_ram_x_wn:
         type: float
         required: yes
       master_ips:
