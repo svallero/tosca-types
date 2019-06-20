@@ -1698,7 +1698,7 @@ node_types:
         default: "dodasts/ttscache"
     artifacts:
       htcondor_config_role:
-        file: indigo-dc.htcondor_config,v1.0.0-dodas-rc4
+        file: indigo-dc.htcondor_config,dodas-virgo-devel
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
@@ -1934,7 +1934,7 @@ node_types:
           type: string
     artifacts:
       virgo_config_role:
-        file: indigo-dc.virgo_config,v0.0.2
+        file: indigo-dc.virgo_config,v0.0.3
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
@@ -2005,7 +2005,7 @@ node_types:
           type: string
     artifacts:
       virgo_config_role:
-        file: indigo-dc.virgo_config,v0.0.2
+        file: indigo-dc.virgo_config,v0.0.3
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
@@ -2083,7 +2083,7 @@ node_types:
         type: string
     artifacts:
       virgo_config_role:
-        file: indigo-dc.virgo_config,v0.0.2
+        file: indigo-dc.virgo_config,v0.0.3
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
