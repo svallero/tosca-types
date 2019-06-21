@@ -1606,6 +1606,18 @@ node_types:
   tosca.nodes.indigo.HTCondorServices:
     derived_from: tosca.nodes.SoftwareComponent
     properties:
+      docker_cpu_x_schedd: 
+        type: float
+        required: yes
+      docker_ram_x_schedd: 
+        type: float
+        required: yes
+      docker_cpu_x_cm: 
+        type: float
+        required: yes
+      docker_ram_x_cm: 
+        type: float
+        required: yes
       htcondor_config_condor_image:
         type: string
         required: no
@@ -1698,7 +1710,7 @@ node_types:
         default: "dodasts/ttscache"
     artifacts:
       htcondor_config_role:
-        file: indigo-dc.htcondor_config,v0.0.0-dodas-virgo-devel
+        file: indigo-dc.htcondor_config,v0.0.1-dodas-virgo-devel
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
@@ -1717,6 +1729,10 @@ node_types:
             low_port:  { get_property: [ SELF, htcondor_config_low_port ] }
             config_mode: { get_property: [ SELF, config_mode ] }
             htcondor_config_condor_image: { get_property: [ SELF, htcondor_config_condor_image ] }
+            docker_cpu_x_schedd: { get_property: [ SELF, docker_cpu_x_schedd ] }
+            docker_ram_x_schedd: { get_property: [ SELF, docker_ram_x_schedd ] }
+            docker_cpu_x_cm: { get_property: [ SELF, docker_cpu_x_cm ] }
+            docker_ram_x_cm: { get_property: [ SELF, docker_ram_x_cm ] }
             proxycache_host: { get_property: [ SELF, proxycache_host ] }
             proxy_cache_manager: { get_property: [ SELF, proxycache_token_manager ] }
             proxy_tts: { get_property: [ SELF, watts_endpoint ] }
